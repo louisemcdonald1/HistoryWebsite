@@ -1,0 +1,26 @@
+﻿@model HistoryWebsite.Models.Article
+
+
+@{
+    ViewBag.Title = "Article";
+    var item = Model;
+}
+
+
+<div>
+    <img class="align-center articleImage" src="@Url.Action("GetImage", "Biographies", new { id = item.ImageId })" alt="@item.Title" />
+</div>
+<br />
+
+<br/>
+<div class="articleTitle align-center">
+    <h3>@item.Title</h3>
+</div>
+
+<br/>
+<br/>
+<div class="articleText align-center">
+    @Html.Raw(@item.Text)
+</div>
+
+

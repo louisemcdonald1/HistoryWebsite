@@ -1,0 +1,34 @@
+﻿@model IEnumerable<HistoryWebsite.Models.Article>
+
+@{
+    ViewBag.Title = "Index";
+}
+    <h3>Entertainment Index</h3>
+    <br />
+    <section id="entertainmentIndex">
+        <div class="menu1 row">
+            <div class="col-xs-4 col-md-4 col-lg-4 menuItem" id="menuItem1">
+                <a href="@Url.Action("Article", "Entertainment", new {articleId=2002})" title="Football">
+                    <img src="~/Content/Images/tudorFootball.jpg" class="widerPicture" alt="Tudor football" />
+                    <p class="text-effects menuText entertainmentMenu">Football</p>
+                </a>
+            </div>
+            <div class="col-xs-4 col-md-4 col-lg-4 menuItem" id="menuItem2">
+                <a href="@Url.Action("Article", "Entertainment", new { articleId = 2003 })" title="Jousting">
+                    <img src="~/Content/Images/jousting.jpg" class="widerPicture" alt="Jousting" />
+                    <p class="text-effects menuText entertainmentMenu">Jousting</p>
+                </a>
+            </div>
+            <div class="col-xs-4 col-md-4 col-lg-4 menuItem" id="menuItem3">
+                <a href="@Url.Action("Article", "Entertainment", new { articleId = 2004 })" title="Music and Dancing">
+                    <img src="~/Content/Images/tudorDancing.jpg" class="widerPicture" alt="Music and Dancing" />
+                    <p class="text-effects menuText entertainmentMenu">Music and Dancing</p>
+                </a>
+            </div>
+        </div>
+        <br/>
+        <br />
+        <br />
+        <br />
+        <br />
+    </section>

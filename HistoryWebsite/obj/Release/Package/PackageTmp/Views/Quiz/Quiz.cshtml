@@ -1,0 +1,40 @@
+﻿@model HistoryWebsite.Models.Quizze
+
+@{
+    ViewBag.Title = "Quiz";
+    var item = Model;
+}
+
+<h3>@item.Title</h3>
+
+@if (item.Id == 2)
+{
+    <img class="align-center articleImage" src="@Url.Action("GetImage", "Quiz", new { id = item.AnotherImageId })" />
+    <br />
+}
+
+<p class="description align-center">@Html.Raw(item.Description)</p>
+<p class="largeDivider align-center">~~~~~</p>
+
+<br/>
+<br/>
+        
+        @using (Html.BeginForm())
+        {
+            @Html.Action("_Questions", "Quiz", new { quizId = item.Id })
+            <br />
+            <br />
+            if(item.Id == 1)
+            { 
+                <input class="align-center" type="submit" name="Quiz" value="Submit Houses Quiz"/>
+            }
+            else
+            {
+                <input class="align-center" type="submit" name="Quiz" value="Submit Characters Quiz" />
+            }
+
+
+        }
+
+
+

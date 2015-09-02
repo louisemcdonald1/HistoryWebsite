@@ -1,0 +1,157 @@
+﻿@model IEnumerable<HistoryWebsite.Models.Article>
+
+@{
+    ViewBag.Title = "Biographies Index";
+}
+
+<section id="biographiesIndex">
+    <section>
+        <div class="col-xs-2 col-md-2 col-lg-2 menuItem"></div>
+            <div class="menu1 row">
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem1">
+                    <div class="text-effects menuHeader"><h3>Monarchs</h3></div>
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1002})" title="Henry VII">
+                        <img src="~/Content/Images/henry_vii.jpg" class="rectangularPicture" alt="Henry VII" />
+                        <p class="text-effects menuText">Henry VII</p>
+                    </a>
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem2">
+                    <div class="text-effects menuHeader"><h3>Consorts</h3></div>
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1003})" title="Elizabeth of York">
+                        <img src="~/Content/Images/elizabethOfYork.jpg" class="rectangularPicture" alt="Elizabeth of York" />
+                        <p class="text-effects menuText">Elizabeth of York</p>
+                    </a>
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem3">
+                    <div class="text-effects menuHeader"><h3>Others</h3></div>
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1004})" title="Margaret Beaufort">
+                        <img src="~/Content/Images/margaretBeaufort.jpg" class="rectangularPicture" alt="Margaret Beaufort" />
+                        <p class="text-effects menuText">Margaret Beaufort</p>
+                    </a>
+                </div>
+            </div>
+        <div class="col-xs-2 col-md-2 col-lg-2 menuItem"></div>
+            <div class="menu2 row">
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem4">
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1})" title="Henry VIII">
+                        <img src="~/Content/Images/henry_viiiYoung.jpg" class="rectangularPicture" alt="Henry VIII at age 40" />
+                        <p class="text-effects menuText">Henry VIII</p>
+                    </a>
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem5">
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1006})" title="Catherine of Aragon">
+                        <img src="~/Content/Images/catherineAragonYoung.jpg" class="rectangularPicture" alt="Catherine of Aragon when young" />
+                        <p class="text-effects menuText">Catherine of Aragon</p>
+                    </a>
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem6">
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1007})" title="Cardinal Wolsey">
+                        <img src="~/Content/Images/cardinalWolsey.jpg" class="rectangularPicture" alt="Cardinal Wolsey" />
+                        <p class="text-effects menuText">Cardinal Wolsey</p>
+                    </a>
+                </div>
+            </div>
+        <div class="col-xs-2 col-md-2 col-lg-2 menuItem"></div>
+            <div class="menu2 row">
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem4">
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1008})" title="Edward VI">
+                        <img src="~/Content/Images/edward_vi.jpg" class="rectangularPicture" alt="Edward VI" />
+                        <p class="text-effects menuText">Edward VI</p>
+                    </a>
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem5">
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1009})" title="Anne Boleyn">
+                        <img src="~/Content/Images/anneBoleyn.jpg" class="rectangularPicture" alt="Anne Boleyn" />
+                        <p class="text-effects menuText">Anne Boleyn</p>
+                    </a>
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem6">
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1010})" title="Thomas Cromwell">
+                        <img src="~/Content/Images/thomasCromwell.jpg" class="rectangularPicture" alt="Thomas Cromwell" />
+                        <p class="text-effects menuText">Thomas Cromwell</p>
+                    </a>
+                </div>
+            </div>
+        <div class="col-xs-2 col-md-2 col-lg-2 menuItem"></div>
+            <div class="menu2 row">
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem4">
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1011})" title="Mary I">
+                        <img src="~/Content/Images/mary_i.jpg" class="rectangularPicture" alt="Mary I" />
+                        <p class="text-effects menuText">Mary I</p>
+                    </a>
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem5">
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1012})" title="Jane Seymour">
+                        <img src="~/Content/Images/janeSeymour.jpg" class="rectangularPicture" alt="Jane Seymour" />
+                        <p class="text-effects menuText">Jane Seymour</p>
+                    </a>
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem6">
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1013})" title="Mary Boleyn">
+                        <img src="~/Content/Images/maryBoleyn.jpg" class="rectangularPicture" alt="Mary Boleyn" />
+                        <p class="text-effects menuText">Mary Boleyn</p>
+                    </a>
+                </div>
+            </div>
+        <div class="col-xs-2 col-md-2 col-lg-2 menuItem"></div>
+            <div class="menu2 row">
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem4">
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1014})" title="Elizabeth I">
+                        <img src="~/Content/Images/elizabeth_i.jpg" class="rectangularPicture" alt="Elizabeth I" />
+                        <p class="text-effects menuText">Elizabeth I</p>
+                    </a>
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem5">
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1015})" title="Anne of Cleves">
+                        <img src="~/Content/Images/anneOfCleves.jpg" class="rectangularPicture" alt="Anne of Cleves" />
+                        <p class="text-effects menuText">Anne of Cleves</p>
+                    </a>
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem6">
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1016})" title="Jane Grey">
+                        <img src="~/Content/Images/janeGrey.jpg" class="rectangularPicture" alt="Jane Grey" />
+                        <p class="text-effects menuText">Jane Grey</p>
+                    </a>
+                </div>
+            </div>
+        <div class="col-xs-2 col-md-2 col-lg-2 menuItem"></div>
+            <div class="menu2 row">
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem4">
+                    <p class="text-effects menuText"></p>
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem5">
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1017})" title="Catherine Howard">
+                        <img src="~/Content/Images/catherineHoward.jpg" class="rectangularPicture" alt="Catherine Howard" />
+                        <p class="text-effects menuText">Catherine Howard</p>
+                    </a>
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem6">
+                    <p class="text-effects menuText"></p>
+                </div>
+            </div>
+        <div class="col-xs-2 col-md-2 col-lg-2 menuItem"></div>
+            <div class="menu2 row">
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem4">
+                    <p class="text-effects menuText"></p>
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem5">
+                    <a href="@Url.Action("Article", "Biographies", new {articleId=1018})" title="Catherine Parr">
+                        <img src="~/Content/Images/catherineParr.jpg" class="rectangularPicture" alt="Catherine Parr" />
+                        <p class="text-effects menuText">Catherine Parr</p>
+                    </a>
+                </div>
+                <div class="col-xs-3 col-md-3 col-lg-3 menuItem" id="menuItem6">
+                    <p class="text-effects menuText"></p>
+                </div>
+            </div>
+
+</section>
+
+
+
+
+</section>
+
+
+
+

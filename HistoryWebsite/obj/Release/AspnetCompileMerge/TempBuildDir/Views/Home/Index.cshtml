@@ -1,0 +1,91 @@
+﻿@model IEnumerable<HistoryWebsite.Models.Article>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempestuous Tudors - Index Page</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/carousel.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <br/>
+    <br/>
+    <div id="historyCarousel" class="carousel slide carouselSize" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#historyCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#historyCarousel" data-slide-to="1"></li>
+            <li data-target="#historyCarousel" data-slide-to="2"></li>
+            <li data-target="#historyCarousel" data-slide-to="3"></li>      
+        </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <a href="@Url.Action("Article", "Biographies", new {articleId=1})" title="Henry VIII">
+                <img src="~/Content/Images/henry_viiiYoung.jpg" alt="Henry VIII when about 40" />
+            </a>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p>Henry VIII at age 40</p>
+                    </div>
+                </div><!--.container-->
+</div><!--.item active-->
+        <div class="item">
+            <a href="@Url.Action("Article", "Biographies", new {articleId=1009})" title="Anne Boleyn">
+                <img src="~/Content/Images/anneBoleyn.jpg" alt="Queen Anne Boleyn" />
+            </a>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p>Queen Anne Boleyn</p>
+                    </div>
+                </div><!--.container-->
+</div><!--.item active-->
+        <div class="item">
+            <a href="@Url.Action("Article", "Biographies", new {articleId=1010})" title="Thomas Cromwell">
+                <img src="~/Content/Images/thomasCromwell.jpg" alt="Thomas Cromwell" />
+            </a>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p>Thomas Cromwell, Henry VIII's chief fixer</p>
+                    </div>
+                </div><!--.container-->
+</div><!--.item active-->
+        <div class="item">
+            <a href="@Url.Action("Article", "Biographies", new {articleId=1014})" title="Elizabeth I">
+                <img src="~/Content/Images/elizabeth_i.jpg" alt="Elizabeth I" />
+            </a>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <p>Elizabeth I</p>
+                    </div>
+                </div><!--.container-->
+    </div><!--.item active-->   
+    </div><!--.carousel-inner-->
+        <a class="left carousel-control" href="#historyCarousel" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+        <a class="right carousel-control" href="#historyCarousel" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+    </div><!--.carousel-->
+
+<div id="introduction">
+    <p>The Tudor era is one of the most exciting in English history.  The crown changed hands on the battlefield for the last time.  
+    England lost its last territories in France but then gloriously defeated the Spanish Armada.  
+    Religious turmoil was the order of the day and many people with the 'wrong' views were executed. 
+    And of course, there was Henry VIII, whose desperate need for sons to secure the future of the Tudors 
+    pushed him into six notorious marriages. <br /> <br />Explore the world of the Tudors by finding out 
+    about the people and their pastimes or by testing yourself with quizzes - who would you have been in 
+    the court of Henry VIII, as dramatised in Wolf Hall?  Or would you have made a killing in property? <br /><br /> 
+    Click on any picture or the navigation bar to find out more about the tempestuous world of the Tudors.
+    </p>
+</div>
+
+</body>
+
+</html>
+

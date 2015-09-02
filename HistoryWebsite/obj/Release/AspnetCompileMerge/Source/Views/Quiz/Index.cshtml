@@ -1,0 +1,39 @@
+﻿@model HistoryWebsite.Models.Quizze
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Quiz Index</h3>
+
+<section id="quizIndex">
+    <section>
+        <div class="menu1 row">
+            <div class="col-xs-1 col-md-1 col-lg-1 "></div>
+            <div class="col-xs-5 col-md-5 col-lg-5 " id="menuItem1">
+                <br />
+                <a href="@Url.Action("Quiz", "Quiz", new {quizId=1})" title="Guess the Tudor House Price">
+                    <img src="~/Content/Images/hamptonCourt.jpg" class="rectangularPicture quizIndex" alt="Henry VII" />
+                    <p class="text-effects menuText quizIndexText">Guess the Tudor house price</p>
+                </a>
+            </div>
+            <div class="col-xs-5 col-md-5 col-lg-5" id="menuItem2">
+                <br />
+                <a href="@Url.Action("Quiz", "Quiz", new {quizId=2})" title="Which Wolf Hall character are you?">
+                    <img src="~/Content/Images/thomasCromwell.jpg" class="rectangularPicture quizIndex" alt="Which Wolf Hall character are you?" />
+                    <p class="text-effects menuText quizIndexText">Which Wolf Hall character are you?</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</section>
+
+
+
+
+            

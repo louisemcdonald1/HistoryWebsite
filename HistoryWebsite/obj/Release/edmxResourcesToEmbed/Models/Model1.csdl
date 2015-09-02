@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="louisemc_tudorsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Correct" Type="Boolean" Nullable="false" />
+    <Property Name="QuestionId" Type="Int32" Nullable="false" />
+    <Property Name="Category" Type="Int32" />
+    <NavigationProperty Name="Question" Relationship="Self.FK_Answers_Questions" FromRole="Answers" ToRole="Questions" />
+  </EntityType>
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ImageId" Type="Int32" />
+    <NavigationProperty Name="Image" Relationship="Self.FK_Articles_Images" FromRole="Articles" ToRole="Images" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image1" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Articles" Relationship="Self.FK_Articles_Images" FromRole="Images" ToRole="Articles" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK_Questions_Images" FromRole="Images" ToRole="Questions" />
+    <NavigationProperty Name="Quizzes" Relationship="Self.FK_Quizzes_Images" FromRole="Images" ToRole="Quizzes" />
+    <NavigationProperty Name="Results" Relationship="Self.FK_Results_Images" FromRole="Images" ToRole="Results" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageId" Type="Int32" />
+    <Property Name="QuizId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_Answers_Questions" FromRole="Questions" ToRole="Answers" />
+    <NavigationProperty Name="Image" Relationship="Self.FK_Questions_Images" FromRole="Questions" ToRole="Images" />
+    <NavigationProperty Name="Quizze" Relationship="Self.FK_Questions_Quizzes" FromRole="Questions" ToRole="Quizzes" />
+  </EntityType>
+  <EntityType Name="Quizze">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageId" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="AnotherImageId" Type="Int32" />
+    <NavigationProperty Name="Image" Relationship="Self.FK_Quizzes_Images" FromRole="Quizzes" ToRole="Images" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK_Questions_Quizzes" FromRole="Quizzes" ToRole="Questions" />
+    <NavigationProperty Name="Results" Relationship="Self.FK_Results_Quizzes" FromRole="Quizzes" ToRole="Results" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImageId" Type="Int32" Nullable="false" />
+    <Property Name="QuizId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Image" Relationship="Self.FK_Results_Images" FromRole="Results" ToRole="Images" />
+    <NavigationProperty Name="Quizze" Relationship="Self.FK_Results_Quizzes" FromRole="Results" ToRole="Quizzes" />
+  </EntityType>
+  <Association Name="FK_Answers_Questions">
+    <End Role="Questions" Type="Self.Question" Multiplicity="1" />
+    <End Role="Answers" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="QuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Articles_Images">
+    <End Role="Images" Type="Self.Image" Multiplicity="0..1" />
+    <End Role="Articles" Type="Self.Article" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Articles">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Questions_Images">
+    <End Role="Images" Type="Self.Image" Multiplicity="0..1" />
+    <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Quizzes_Images">
+    <End Role="Images" Type="Self.Image" Multiplicity="0..1" />
+    <End Role="Quizzes" Type="Self.Quizze" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Quizzes">
+        <PropertyRef Name="AnotherImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Results_Images">
+    <End Role="Images" Type="Self.Image" Multiplicity="1" />
+    <End Role="Results" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Images">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Results">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Questions_Quizzes">
+    <End Role="Quizzes" Type="Self.Quizze" Multiplicity="1" />
+    <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quizzes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="QuizId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Results_Quizzes">
+    <End Role="Quizzes" Type="Self.Quizze" Multiplicity="1" />
+    <End Role="Results" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quizzes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Results">
+        <PropertyRef Name="QuizId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="louisemc_tudorsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Answers" EntityType="Self.Answer" />
+    <EntitySet Name="Articles" EntityType="Self.Article" />
+    <EntitySet Name="Images" EntityType="Self.Image" />
+    <EntitySet Name="Questions" EntityType="Self.Question" />
+    <EntitySet Name="Quizzes" EntityType="Self.Quizze" />
+    <EntitySet Name="Results" EntityType="Self.Result" />
+    <AssociationSet Name="FK_Answers_Questions" Association="Self.FK_Answers_Questions">
+      <End Role="Questions" EntitySet="Questions" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Articles_Images" Association="Self.FK_Articles_Images">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="Articles" EntitySet="Articles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Questions_Images" Association="Self.FK_Questions_Images">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Quizzes_Images" Association="Self.FK_Quizzes_Images">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="Quizzes" EntitySet="Quizzes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Results_Images" Association="Self.FK_Results_Images">
+      <End Role="Images" EntitySet="Images" />
+      <End Role="Results" EntitySet="Results" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Questions_Quizzes" Association="Self.FK_Questions_Quizzes">
+      <End Role="Quizzes" EntitySet="Quizzes" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Results_Quizzes" Association="Self.FK_Results_Quizzes">
+      <End Role="Quizzes" EntitySet="Quizzes" />
+      <End Role="Results" EntitySet="Results" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

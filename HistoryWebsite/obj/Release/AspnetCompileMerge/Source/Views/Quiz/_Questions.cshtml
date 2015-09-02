@@ -1,0 +1,31 @@
+﻿@model IEnumerable<HistoryWebsite.Models.Question>
+
+@{
+    ViewBag.Title = "Questions";
+    int quizId = ViewBag.QuizId;
+    int questionNumber = 0;
+}
+
+@{
+foreach (var item in Model)
+{
+    <div class="questions form-group align-center">
+        
+        @if(quizId == 1)
+        {
+            <img class="align-center articleImage" src="@Url.Action("GetImage", "Quiz", new { id = item.ImageId })" />
+            <br/>
+        }
+        @if(quizId != 0)
+        {
+            questionNumber++;    
+        }
+        <span class="questionNumber">@questionNumber .</span>@item.Text<br />
+        <br />
+        @Html.Action("_Answers", "Quiz", new { questionId = item.Id })
+        <br/>
+        <br/>
+    </div>
+
+}
+}
